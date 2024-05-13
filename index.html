@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+    <title>NatureLovers - Guide to London</title>
+</head>
+<body>
+
+<!-- Banner -->
+<div id="banner" class="green2 container-fluid p-4 border-left border-top border-bottom border-right border-2 border-dark position-relative">
+    <div class="row align-items-center justify-content-between">
+        <!-- Back button -->
+        <div class="col-lg-1">
+            <button id="backBtn" class="btn green2" onclick="showErrorNotification('You\'re back where you started!')">
+                <img id="backImg" src="images/back.png" alt="Back" class="img-fluid">
+                <p class="">Back</p>
+            </button>
+        </div>
+        <!-- Logo -->
+        <div class="col-lg-4">
+            <img id="logo" src="images/logo.png" class="img-fluid" alt="Logo">
+        </div>
+        <!-- Profile button -->
+        <div class="col-lg-1 text-end">
+            <div class="dropdown">
+                <button class="btn green2" type="button" id="userProfileBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img id="userProfile" src="../images/profile.png" alt="Profile" class="img-fluid me-2">
+                    <span class="align-middle">Username</span>
+                </button>
+                <ul class="dropdown-menu green5" aria-labelledby="userProfileBtn">
+                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/contrastToggle.png" class="me-2" alt="Contrast Toggle">Contrast Mode</a></li>
+                    <li><a class="dropdown-item" href="/pages/userprofile.html"><img src="../images/settingsCog.png" class="me-2" alt="Settings">Settings</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/Logout.png" class="me-2" alt="Sign Out">Sign Out</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showErrorNotification('You\'re back where you started!')"><img src="../images/Back.png" class="" alt="Go Back">Go Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Search bar and button -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-4">
+            <div class="d-flex">
+                <input type="text" class="form-control border-dark green5" style="width: 100%;" placeholder="Search">
+                <button class="btn green5 border-dark ms-2 p-1" type="button" onclick="showSorryNotification()">
+                    <img id="searchButton" src="images/magnifying_glass.png" alt="Search" class="img-fluid">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Body -->
+<div id="mainBody" class="green5 container-fluid pt-2 border-left border-right border-bottom border-2 border-dark position-relative d-flex flex-column flex-fill flex-grow-1">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb green5 mb-0">
+                <li class="breadcrumb-item active" aria-current="page">Victoria Park</li>
+            </ol>
+        </nav>
+        <hr>
+        <div class="m-3 green5"> <!-- This div is necessary to indent the main body's contents -->
+            <div class="row">
+                <!-- Section 1 -->
+                <div id="section-1" class="col-lg-4">
+                    <h2 class="display-4 d-flex align-items-center">
+                        Victoria Park
+                        <div class="ms-auto mb-2">
+                            <div class="d-flex justify-content-end">
+                                <button id="notifyBtn" class="btn" onclick="showSorryNotification()">
+                                    <img id="notifyImg" src="images/notifybtn.png" alt="Notify Button" class="img-fluid">
+                                </button>
+                                <button id="shareBtn" class="btn" onclick="showSorryNotification()">
+                                    <img id="shareImg" src="images/sharebtn.png" alt="Share Button" class="img-fluid">
+                                </button>
+                            </div>
+                        </div>
+                    </h2>
+                    <div id="attractionImageContainer" class="row align-items-center">
+                        <div class="col-lg-12">
+                            <img id="attractionImage" src="images/attraction.jpg" class="img-fluid" alt="Victoria Park Image">
+                            <div id="imageNotFound" class="" style="display: none;">Image Not Found</div>
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            <div class="d-flex align-items-center">
+                                <img src="images/5 stars.png" alt="Star Rating" class="me-2 img-fluid">
+                                <span class="me-2">(4.6 Rating)</span>
+                                <div class="ms-auto">
+                                    <p id="reviews" class="text-primary" onclick="showSorryNotification()">Reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="display-6 mt-2">About attraction</h2>
+                    <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem ad minus eveniet consectetur debitis, dignissimos voluptas dolores nihil rerum quo possimus incidunt nam exercitationem. Consectetur enim ipsa quisquam. Ipsa, esse!</p>
+                </div>
+                <!-- Section 2 -->
+                <div id="section-2" class="col-lg-4">
+                    <h2 class="display-4 d-flex align-items-center">
+                        <img id="thingsToDo" class="pe-3" src="images/Things to do in attraction.png" alt="Things to do image" class="img-fluid">
+                        Things to Do
+                    </h2>
+
+                    <!-- Things to do Section -->
+
+                    <div id="thingsToDoContainer" class="row align-items-center">
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/paid.png" alt="Paid attraction" class="me-2 img-fluid">
+                                <span class="me-2">Paid 'thing to do'</span>
+                                <img src="images/5 stars.png" alt="Star Rating" class="me-2 img-fluid">
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/free.png" alt="Free attraction" class="me-2 img-fluid">
+                                <span class="me-2">Free 'thing to do</span>
+                                <img src="images/5 stars.png" alt="Star Rating" class="me-2 img-fluid">
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/free.png" alt="Free attraction" class="me-2 img-fluid">
+                                <span class="me-2">Free 'thing to do</span>
+                                <img src="images/5 stars.png" alt="Star Rating" class="me-2 img-fluid">
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/free.png" alt="Free attraction" class="me-2 img-fluid">
+                                <span class="me-2">Free 'thing to do</span>
+                                <img src="images/5 stars.png" alt="Star Rating" class="me-2 img-fluid">
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/paid.png" alt="Paid attraction" class="me-2 img-fluid">
+                                <span class="me-2">Paid 'thing to do</span>
+                                <img src="images/5 stars.png" alt="Star Rating" class="me-2 img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wildlife Section -->
+                    
+                    <h2 class="display-4 d-flex align-items-center mt-3">
+                        <img id="wildlifeIcon" class="" src="images/wildlife.png" alt="Wildlife image">
+                        <div id="wildlifeMoreInfo" class="mb-5 px-0 pe-2 me-2">
+                            <button id="wildlifeInfoBtn" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to learn more" onclick="redirectToLearnMore()">
+                                <img src="images/alert.png" alt="Wildlife Icon Info" class="img-fluid">
+                            </button>
+                        </div>                        
+                        Wildlife
+                    </h2>
+                    <div id="wildlife" class="row align-items-center">
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/wolf.png" alt="Wolf" class="me-2 img-fluid">
+                                <span class="me-2">Wolves</span>
+                                <img src="images/danger.png" alt="Dangerous" class="img-fluid">
+                                <img src="images/unlocked.png" alt="Free to Roam" class="img-fluid">
+                                <span class="px-3">Location & Other Details</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/snake.png" alt="Snake" class="me-2 img-fluid">
+                                <span class="me-2">Snakes</span>
+                                <img src="images/danger.png" alt="Dangerous" class="img-fluid">
+                                <img src="images/locked.png" alt="Caged" class="img-fluid">
+                                <span class="px-3">Location & Other Details</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/rabbit.png" alt="Rabbit" class="me-2 img-fluid">
+                                <span class="me-2">Rabbits</span>
+                                <img src="images/unlocked.png" alt="Free to Roam" class="img-fluid">
+                                <span class="px-4">Location & Other Details</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/bear.png" alt="Bear" class="me-2 img-fluid">
+                                <span class="me-2">Bears</span>
+                                <img src="images/danger.png" alt="Dangerous" class="img-fluid">
+                                <img src="images/locked.png" alt="Caged" class="img-fluid">
+                                <span class="px-4">Location & Other Details</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/bee.png" alt="Bee" class="me-2 img-fluid">
+                                <span class="me-2">Bees</span>
+                                <img src="images/unlocked.png" alt="Free to Roam" class="img-fluid">
+                                <span class="px-3">Location & Other Details</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Insider Tip Section -->
+
+                    <h2 class="display-4 d-flex align-items-center mt-3">
+                        <img id="insiderTip" class="me-1" src="images/insidertip.png" alt="Insider Tip image">
+                        Insider Tip
+                    </h2>
+                    <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem ad minus eveniet consectetur debitis, dignissimos voluptas dolores nihil rerum quo possimus incidunt nam exercitationem. Consectetur enim ipsa quisquam. Ipsa, esse!</p>
+
+                </div>
+                <!-- Section 3 -->
+                <div id="section-3" class="col-lg-4 d-flex flex-column flex-fill">
+                    <h2 class="display-4 d-flex align-items-center">
+                        <img id="calendaricon" class="px-2" src="images/calendar.png" alt="Calendar image">
+                         Best Visit Time
+                         <button id="timesToVisitInfo" class="btn mb-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to learn more" onclick="redirectToLearnMore()">
+                            <img src="images/questionmark.png" alt="Recommended times to visit info" class="img-fluid">
+                        </button>                   </h2>
+                    <div id="bestTimeToVisit" class="row align-items-center">
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/ballroom.png" alt="ballroom" class="me-2 img-fluid">
+                                <img src="images/summer.png" alt="summer" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/low crowd density.png" alt="low crowd density" class="me-2 img-fluid">
+                                <span class="me-2">Starry Waltz Gala</span>
+                                <img src="images/5 stars.png" alt="Star rating" class="img-fluid">
+                                <span class="px-3">21/07/2024 | 7:00PM GMT</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/market.png" alt="market" class="me-2 img-fluid">
+                                <img src="images/winter.png" alt="winter" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/high crowd density.png" alt="high crowd density" class="me-2 img-fluid">
+                                <span class="me-2">Bazaar Extravaganza</span>
+                                <img src="images/5 stars.png" alt="Star rating" class="img-fluid">
+                                <span class="px-3">14/01/2025 | 11:00 AM GMT</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/wolf.png" alt="wolf" class="me-2 img-fluid">
+                                <img src="images/bear.png" alt="bear" class="me-2 img-fluid">
+                                <img src="images/spring.png" alt="spring" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/high crowd density.png" alt="high crowd density" class="me-2 img-fluid">
+                                <span class="me-2">Howl & Growl Safari</span>
+                                <img src="images/5 stars.png" alt="Star rating" class="img-fluid">
+                                <span class="px-3">15/05/2024 | 1:00PM GMT</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/snake.png" alt="snake" class="me-2 img-fluid">
+                                <img src="images/autumn.png" alt="autumn" class="me-2 img-fluid">
+                                <img src="images/rain.png" alt="rain" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/low crowd density.png" alt="low crowd density" class="me-2 img-fluid">
+                                <span class="me-2">Serpentine Spectacle</span>
+                                <img src="images/5 stars.png" alt="Star rating" class="img-fluid">
+                                <span class="px-3">27/10/2024 | 4:30PM GMT</span>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-12 mt-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <img src="images/market.png" alt="market" class="me-2 img-fluid">
+                                <img src="images/summer.png" alt="summer" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/money.png" alt="money" class="me-2 img-fluid">
+                                <img src="images/mediun crowd density.png" alt="medium crowd density" class="me-2 img-fluid">
+                                <span class="me-2">Global Market Fair</span>
+                                <img src="images/5 stars.png" alt="Star rating" class="img-fluid">
+                                <span class="px-3">29/06/2024 | 3:00PM GMT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="display-4 d-flex align-items-center mt-2 ms-2">
+                        <!-- Location Heading -->
+                        <h2 class="display-4 d-flex align-items-center">
+                            Location
+                        </h2>
+                        <!-- Google Maps Embed -->
+                        <div class="embed-responsive embed-responsive-16by9 mt-2 col-lg-12 d-flex flex-column flex-fill">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2092.3925850045803!2d-0.040212580475640435!3d51.536872209753504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761d18d943431d%3A0xe0bcb0765fbb76a!2sVictoria%20Park!5e1!3m2!1sen!2suk!4v1715467923755!5m2!1sen!2suk" class="embed-responsive-item w-100 d-flex flex-column flex-fill" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="green2 text-white text-center py-3">
+        <div class="d-flex justify-content-center">
+            <p class="footer-link mx-3" onclick="showSorryNotification()">Contact Us</p>
+            <p class="footer-link mx-3" onclick="showSorryNotification()">Terms of Use</p>
+            <p class="footer-link mx-3" onclick="showSorryNotification()">Become a Subscriber</p>
+        </div>
+    </footer>
+</div>
+
+
+<script>
+    // Handle image load failing
+    document.getElementById("searchButton").onerror = function() {
+        this.style.visibility = "hidden"; // Hide the image if it fails to load
+        this.parentNode.innerText = "Search"; // Show text describing function if the image fails to load
+    };
+    document.getElementById("logo").onerror = function() {
+        this.style.visibility = "hidden";
+        this.parentNode.innerText = "NatureLovers";
+    };
+    document.getElementById("backBtn").onerror = function() {
+        this.style.visibility = "hidden"; 
+        this.parentNode.innerText = "Back";
+    };
+    document.getElementById("userProfile").onerror = function() {
+        this.style.visibility = "hidden";
+        this.parentNode.innerText = "Username";
+    };
+    document.getElementById("notifyBtn").onerror = function() {
+        this.style.visibility = "hidden";
+        this.parentNode.innerText = "Notify";
+    };
+    document.getElementById("shareBtn").onerror = function() {
+        this.style.visibility = "hidden";
+        this.parentNode.innerText = "Share";
+    };
+    document.getElementById("attractionImage").onerror = function() {
+        this.style.display = "none";
+        document.getElementById("imageNotFound").style.display = "block";
+    };
+    document.getElementById("timesToVisitInfo").onerror = function() {
+        this.style.visibility = "hidden";
+    };
+    document.getElementById("wildlifeIcon").onerror = function() {
+        this.style.visibility = "hidden";
+    };
+    document.getElementById("wildlifeMoreInfo").onerror = function() {
+        this.style.visibility = "hidden";
+    };
+    document.getElementById("insiderTip").onerror = function() {
+        this.style.visibility = "hidden";
+    };
+
+    function redirectToLearnMore() {
+    window.location.href = 'pages/learnmore.html';
+    }
+
+    function updateStarRatings() {
+        const starRatingImages = document.querySelectorAll('#section-3 img[src="images/5 stars.png"]');
+        starRatingImages.forEach((img, index) => {
+            const event = eventsInAttraction[index];
+            let starRating = Math.round(event.points / 2); // Round to nearest integer
+            // Ensure star rating falls within the range of 0 to 5
+            starRating = Math.max(0, Math.min(5, starRating));
+            img.src = `images/${starRating} stars.png`;
+            img.alt = `${starRating} Star Rating`;
+        });
+    }
+
+    // Load in user preferences if they are there. Otherwise, use defaults.
+    const userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || {
+        budgetPreference: "medium",
+        crowdDensityPreference: "medium",
+        seasonalPreferences: [],
+        wildlifePreferences: []
+    };
+
+    // Log whether user preferences are loaded
+    console.log("User preferences loaded:", !!localStorage.getItem('userPreferences'));
+
+    console.log("User budget preference:", userPreferences.budgetPreference);
+    console.log("User crowd density preference:", userPreferences.crowdDensityPreference);
+    console.log("User seasonal preferences:", userPreferences.seasonalPreferences);
+    console.log("User wildlife preferences:", userPreferences.wildlifePreferences);
+
+    // Default points values for each event
+    const defaultEventsInAttraction = [
+        {
+            name: "Starry Waltz Gala",
+            points: 8,
+            budget: "Low Budget",
+            crowdDensity: "Low Crowd Density",
+            season: ["Summer"],
+            wildlife: [],
+            weather: []
+        },
+        {
+            name: "Bazaar Extravaganza",
+            points: 7,
+            budget: "Medium Budget",
+            crowdDensity: "High Crowd Density",
+            season: ["Winter"],
+            wildlife: [],
+            weather: []
+        },
+        {
+            name: "Howl & Growl Safari",
+            points: 9,
+            budget: "Medium Budget",
+            crowdDensity: "High Crowd Density",
+            season: ["Spring"],
+            wildlife: ["Wolves","Bears"],
+            weather: []
+        },
+        {
+            name: "Serpentine Spectacle",
+            points: 6,
+            budget: "High Budget",
+            crowdDensity: "Low Crowd Density",
+            season: ["Autumn"],
+            wildlife: ["Snakes"],
+            weather: ["Raining"]
+        },
+        {
+            name: "Global Market Fair",
+            points: 4,
+            budget: "High Budget",
+            crowdDensity: "High Crowd Density",
+            season: ["Summer"],
+            wildlife: [],
+            weather: []
+        }
+    ];
+
+    // Clone the default events array to ensure immutability
+    const eventsInAttraction = defaultEventsInAttraction.map(event => ({ ...event }));
+
+    // Function to calculate points for each event based on user preferences
+    function calculatePointsBasedOnPreferences(event) {
+        let points = event.points; // Start with the default points value
+
+        // Check if event matches any of the user's seasonal preferences
+        if (userPreferences.seasonalPreferences.some(pref => event.season.includes(pref))) {
+            points += 1; // Add one point if event matches any seasonal preference
+        }
+
+        // Check if event matches user's wildlife preferences
+        userPreferences.wildlifePreferences.forEach(pref => {
+            if (event.wildlife.includes(pref)) {
+                points += 1; // Add one point for each matching wildlife preference
+            }
+        });
+
+        // Adjust points based on crowd density preference
+        if (userPreferences.crowdDensityPreference === "Low Crowd Density") {
+            if (event.crowdDensity === "Medium Crowd Density") {
+                points -= 1; // Subtract 1 point if event crowd density is one higher than preference
+            } else if (event.crowdDensity === "High Crowd Density") {
+                points -= 2; // Subtract 2 points if event crowd density is two higher than preference
+            }
+        } else if (userPreferences.crowdDensityPreference === "Medium Crowd Density") {
+            if (event.crowdDensity === "High Crowd Density") {
+                points -= 1; // Subtract 1 point if event crowd density is one higher than preference
+            } else if (event.crowdDensity === "Low Crowd Density") {
+                points -= 2; // Subtract 2 points if event crowd density is two higher than preference
+            }
+        } else if (userPreferences.crowdDensityPreference === "High Crowd Density") {
+            if (event.crowdDensity === "Medium Crowd Density") {
+                points -= 1; // Subtract 1 point if event crowd density is one higher than preference
+            } else if (event.crowdDensity === "Low Crowd Density") {
+                points -= 2; // Subtract 2 points if event crowd density is two higher than preference
+            }
+        }
+
+        // Adjust points based on budget preference
+        if (userPreferences.budgetPreference === "Low Budget") {
+            if (event.budget === "Medium Budget") {
+                points -= 1; // Subtract 1 point if event budget is one higher than preference
+            } else if (event.budget === "High Budget") {
+                points -= 2; // Subtract 2 points if event budget is two higher than preference
+            }
+        } else if (userPreferences.budgetPreference === "Medium Budget") {
+            if (event.budget === "Low Budget") {
+                points += 1; // Add 1 point if event budget is one lower than preference
+            } else if (event.budget === "High Budget") {
+                points -= 1; // Subtract 1 point if event budget is one higher than preference
+            }
+        } else if (userPreferences.budgetPreference === "High Budget") {
+            if (event.budget === "Medium Budget") {
+                points += 1; // Add 1 point if event budget is one lower than preference
+            } else if (event.budget === "Low Budget") {
+                points += 2; // Add 2 points if event budget is two lower than preference
+            }
+        }
+
+        return points;
+    }
+
+    // Update the eventsInAttraction array with the calculated points for each event
+    eventsInAttraction.forEach(event => {
+        event.points = calculatePointsBasedOnPreferences(event);
+    });
+
+    // Log the points for each event after they have been updated
+    eventsInAttraction.forEach(event => {
+        console.log(`Points for ${event.name}: ${event.points}`);
+    });
+
+    updateStarRatings();
+
+    let activeNotification = null;
+
+    function showSorryNotification() {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification');
+        notification.innerText = "Sorry! This feature hasn't been implemented yet.";
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null; // Reset active notification after removal
+            }, 1000);
+        }, 3000);
+    }
+
+    function showErrorNotification(text) {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification', 'error');
+        notification.innerText = text;
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null; // Reset active notification after removal
+            }, 1000);
+        }, 3000);
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

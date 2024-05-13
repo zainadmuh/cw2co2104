@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/styles.css" rel="stylesheet">
+    <title>NatureLovers - Guide to London</title>
+</head>
+<body class="">
+
+<!-- Banner -->
+<div id="banner" class="green2 container-fluid p-4 border-left border-top border-bottom border-right border-2 border-dark position-relative">
+    <div class="row align-items-center justify-content-between">
+        <!-- Back button -->
+        <div class="col-lg-1">
+            <button id="backBtn" class="btn green2" onclick="history.back()">
+                <img id="backBtnImg" src="../images/back.png" alt="Back" class="img-fluid">
+                <p class="">Back</p>
+            </button>
+        </div>
+        <!-- Logo -->
+        <div class="col-lg-4">
+            <img id="logo" src="../images/logo.png" class="img-fluid" alt="Logo">
+        </div>
+        <!-- Profile button -->
+        <div class="col-lg-1 text-end">
+            <div class="dropdown">
+                <button id="userProfileBtn" class="btn green2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img id="userProfileImg" src="../images/profile.png" alt="Profile" class="img-fluid me-2">
+                    <span class="align-middle">Username</span>
+                </button>
+                <ul class="dropdown-menu green5" aria-labelledby="userProfileBtn">
+                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/contrastToggle.png" class="me-2" alt="Contrast Toggle">Contrast Mode</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showErrorNotification('You\'re already in settings!')"><img src="../images/settingsCog.png" class="me-2" alt="Settings">Settings</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/Logout.png" class="me-2" alt="Sign Out">Sign Out</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="history.back()"><img src="../images/back.png" class="me-2" alt="Go Back">Go Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Search bar and button -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-4">
+            <div class="d-flex">
+                <input id="searchInput" type="text" class="form-control border-dark green5" style="width: 100%;" placeholder="Search">
+                <button class="btn green5 border-dark ms-2 p-1" type="button" onclick="showSorryNotification()">
+                    <img id="searchButtonImg" src="../images/magnifying_glass.png" alt="Search" class="img-fluid">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Body -->
+<div id="mainBody" class="green5 container-fluid pt-2 border-left border-right border-bottom border-2 border-dark position-relative d-flex flex-column flex-grow-1">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb green5 mb-0">
+            <li class="breadcrumb-item"><a href="/index.html">Victoria Park</a></li>
+            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+        </ol>
+    </nav>
+    <hr>
+    <div class="m-3 ms-5 green5 d-flex flex-column flex-grow-1"> <!-- This div is necessary to indent the main body's contents -->
+        <div class="row">
+            <!-- Section 1 -->
+            <div id="section-1" class="col-lg-4 d-flex flex-column flex-fill">
+                <h2 class="display-4 d-flex align-items-center">
+                    Hello Username!
+                </h2>
+                <input id="emailInput" type="text" class="form-control border-dark green5 mt-3 w-50" placeholder="Email" value="username@email.com">
+                <div class="input-group mt-3 w-50">
+                    <button class="btn green5 border-dark p-1" type="button">
+                        <img src="../images/asterisk.png" alt="Password Icon" class="img-fluid">
+                    </button>
+                    <input id="password" type="password" class="form-control border-dark green5" placeholder="Password">
+                </div>                                       
+                <div class="input-group mt-3 w-50">
+                    <button class="btn green5 border-dark p-1" type="button">
+                        <img src="../images/asterisk.png" alt="Password Icon" class="img-fluid">
+                    </button>
+                    <input id="newPassword" type="password" class="form-control border-dark green5" placeholder="New Password">
+                </div>
+                <input id="phoneNumberInput" type="text" class="form-control border-dark green5 mt-3 w-50" placeholder="Phone Number" value="+443051770894">
+                <div class="input-group mt-3 w-50">
+                    <input type="text" class="form-control border-dark green5" id="selectedRegion" placeholder="Select Region" value="Asia" readonly>
+                    <button class="btn green5 border-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('Asia', 'selectedRegion')">Asia</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('Africa', 'selectedRegion')">Africa</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('Europe', 'selectedRegion')">Europe</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('North America', 'selectedRegion')">North America</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('South America', 'selectedRegion')">South America</a></li>
+                    </ul>
+                </div>
+                <div class="input-group mt-3 w-50">
+                    <input type="text" class="form-control border-dark green5" id="selectedLanguage" placeholder="Select Language" value="English" readonly>
+                    <button class="btn green5 border-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('简体中文', 'selectedLanguage')">简体中文</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('Español', 'selectedLanguage')">Español</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('English', 'selectedLanguage')">English</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('हिंदी', 'selectedLanguage')">हिंदी</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption('عربي', 'selectedLanguage')">عربي</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-danger mt-4 w-50" onclick="showSorryNotification()">Deactivate</button>
+                <button class="btn btn-danger mt-4 w-50" id="restoreDefaultsBtn" onclick="confirmRestoreDefaults()">Restore Defaults</button>
+            </div>
+            <!-- Section 2 -->
+            <div id="section-2" class="col-lg-4">
+                <h2 class="display-4 d-flex align-items-center">
+                    User Details
+                </h2>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input green4 bgreen1" type="checkbox" id="followRequestsSwitch">
+                    <label class="form-check-label" for="followRequestsSwitch" id="followRequestsLabel"></label>
+                </div>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input green4" type="checkbox" id="profileVisibilitySwitch" checked>
+                    <label class="form-check-label" for="profileVisibilitySwitch" id="profileVisibilityLabel">Enable Profile Visibility</label>
+                </div>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input green4" type="checkbox" id="targetedAdvertisingSwitch" checked>
+                    <label class="form-check-label" for="targetedAdvertisingSwitch" id="targetedAdvertisingLabel">Enable Targeted Advertising</label>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <p>Display Online Activity To:</p>
+                    </div>
+                </div>
+                    <div class="btn-group border rounded border-dark" role="group" data-group="followerPreferences">
+                        <button type="button" class="btn green4 bgreen1 active" onclick="highlightOption('followerPreferences', this)">None</button>
+                        <button type="button" class="btn green4 bgreen1" onclick="highlightOption('followerPreferences', this)">Followed</button>
+                        <button type="button" class="btn green4 bgreen1" onclick="highlightOption('followerPreferences', this)">Followers</button>
+                        <button type="button" class="btn green4 bgreen1" onclick="highlightOption('followerPreferences', this)">All</button>
+                    </div>
+                <h2 class="display-4 d-flex align-items-center mt-3">
+                    Security Settings
+                </h2>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input green4 bgreen1" type="checkbox" id="2faPreference">
+                    <label class="form-check-label" for="2faPreference" id="2faLabel">Enable 2FA</label>
+                </div>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input green4" type="checkbox" id="disableSuspiciousActivityAlerts" checked>
+                    <label class="form-check-label" for="disableSuspiciousActivityAlerts" id="suspiciousActivityLabel">Disable Suspicious Activity Alerts</label>
+                    <img id="suspiciousActivityImage" src="../images/danger.png" alt="Image" class="img-fluid mb-1 px-1" style="display: none;">
+                </div>
+                <input id="recoveryEmailInput" type="text" class="form-control border-dark green5 w-50 mt-3" placeholder="Recovery Email" value="username@recovery.com">
+                <h2 class="display-4 d-flex align-items-center mt-3">
+                    Connected Apps
+                </h2>
+                <div class="d-flex align-items-center mb-3 mt-3" id="app1">
+                    <img src="../images/app1.png" alt="App 1" class="me-3 img-fluid">
+                    <span class="me-2">App 1</span>
+                    <div class="px-1">
+                        <button class="btn btn-danger fixed-width-btn" onclick="changeConnectedAppState('app1')">Disconnect</button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3" id="app2">
+                    <img src="../images/app2.png" alt="App 2" class="me-3 img-fluid">
+                    <span class="me-2">App 2</span>
+                    <div class="px-1">
+                        <button class="btn btn-danger fixed-width-btn" onclick="changeConnectedAppState('app2')">Disconnect</button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center" id="app3">
+                    <img src="../images/app3.png" alt="App 3" class="me-3 img-fluid">
+                    <span class="me-2">App 3</span>
+                    <div class="px-1">
+                        <button class="btn btn-danger fixed-width-btn" onclick="changeConnectedAppState('app3')">Disconnect</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Section 3 -->
+            <div id="section-3" class="col-lg-4">
+                <h2 class="display-4 d-flex align-items-center">
+                    Recommendation Preferences
+                </h2>
+                <h2 class="display-6 d-flex align-items-center mt-3">
+                    Budget Preferences
+                </h2>
+                <div class="btn-group border rounded border-dark mt-3" role="group" data-group="budgetPreferences">
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('budgetPreferences', this)">
+                        <div>Low Budget</div>
+                        <img src="../images/money.png" alt="Low Budget" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1 active" onclick="highlightOption('budgetPreferences', this)">
+                        <div>Medium Budget</div>
+                        <img src="../images/money.png" alt="Medium Budget" class="img-fluid">
+                        <img src="../images/money.png" alt="Medium Budget" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('budgetPreferences', this)">
+                        <div>High Budget</div>
+                        <img src="../images/money.png" alt="High Budget" class="img-fluid">
+                        <img src="../images/money.png" alt="High Budget" class="img-fluid">
+                        <img src="../images/money.png" alt="High Budget" class="img-fluid">
+                    </button>
+                </div>
+                <h2 class="display-6 d-flex align-items-center mt-3">
+                    Crowd Density Preferences
+                </h2>
+                <div class="btn-group border rounded border-dark mt-3" role="group" data-group="crowdDensityPreferences">
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('crowdDensityPreferences', this)">
+                        <div>Low Crowd Density</div>
+                        <img src="../images/low crowd density.png" alt="Low Crowd Density" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1 active" onclick="highlightOption('crowdDensityPreferences', this)">
+                        <div>Medium Crowd Density</div>
+                        <img src="../images/mediun crowd density.png" alt="Medium Crowd Density" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('crowdDensityPreferences', this)">
+                        <div>High Crowd Density</div>
+                        <img src="../images/high crowd density.png" alt="High Crowd Density" class="img-fluid">
+                    </button>
+                </div>                
+                <h2 class="display-6 d-flex align-items-center mt-3">
+                    Seasonal Preferences
+                </h2>
+                <div class="btn-group border rounded border-dark mt-3" role="group" data-group="seasonalPreferences">
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('seasonalPreferences', this)">
+                        <div>Summer</div>
+                        <img src="../images/summer.png" alt="Summer" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('seasonalPreferences', this)">
+                        <div>Winter</div>
+                        <img src="../images/winter.png" alt="Winter" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('seasonalPreferences', this)">
+                        <div>Spring</div>
+                        <img src="../images/spring.png" alt="Spring" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('seasonalPreferences', this)">
+                        <div>Autumn</div>
+                        <img src="../images/autumn.png" alt="Autumn" class="img-fluid">
+                    </button>
+                </div>
+                <h2 class="display-6 d-flex align-items-center mt-3">
+                    Wildlife Preferences
+                </h2>
+                <div class="btn-group border rounded border-dark mt-3" role="group" data-group="wildlifePreferences">
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('wildlifePreferences', this)">
+                        <div>Wolves</div>
+                        <img src="../images/wolf.png" alt="Wolves" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('wildlifePreferences', this)">
+                        <div>Snakes</div>
+                        <img src="../images/snake.png" alt="Snakes" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('wildlifePreferences', this)">
+                        <div>Rabbits</div>
+                        <img src="../images/rabbit.png" alt="Rabbits" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('wildlifePreferences', this)">
+                        <div>Bears</div>
+                        <img src="../images/bear.png" alt="Bears" class="img-fluid">
+                    </button>
+                    <button type="button" class="btn green4 bgreen1" onclick="highlightOption('wildlifePreferences', this)">
+                        <div>Bees</div>
+                        <img src="../images/bee.png" alt="Bees" class="img-fluid">
+                    </button>
+                </div>
+                <button id="saveSettings" class="btn btn-success mt-4 w-100 mb-2" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="green2 text-white text-center py-3">
+    <div class="d-flex justify-content-center">
+        <p class="footer-link mx-3" onclick="showSorryNotification()">Contact Us</p>
+        <p class="footer-link mx-3" onclick="showSorryNotification()">Terms of Use</p>
+        <p class="footer-link mx-3" onclick="showSorryNotification()">Become a Subscriber</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    function selectOption(option, element) {
+        document.getElementById(element).value = option;
+    }
+
+    /* Allow user to select at most and minimum one option for follower, budget and crowd density preferences.
+    For seasonal and wildlife preference, the user can select 0 to all buttons */
+
+    function highlightOption(group, button) {
+        // Check if the button is currently active
+        var isActive = button.classList.contains('active');
+
+        if (group === 'seasonalPreferences' || group === 'wildlifePreferences') {
+            button.classList.toggle('active');
+        } else {
+            if (!isActive) {
+                var buttons = document.querySelectorAll('.btn-group[data-group="' + group + '"] button');
+                buttons.forEach(function(btn) {
+                    if (btn !== button) {
+                        btn.classList.remove('active');
+                    }
+                });
+                button.classList.add('active');
+            }
+        }
+    }
+
+    // When clicking disconnect/connect for an app, change button colour and text accordingly
+    function changeConnectedAppState(appId) {
+        var appElement = document.getElementById(appId);
+        var button = appElement.querySelector('button');
+        if (button.textContent === 'Disconnect') {
+            button.textContent = 'Connect';
+            button.classList.remove('btn-danger');
+            button.classList.add('btn-success');
+        } else {
+            button.textContent = 'Disconnect';
+            button.classList.remove('btn-success');
+            button.classList.add('btn-danger');
+        }
+    }
+
+    // Update the switch's label text to Disable or Enable depending on whether the switch is checked or unchecked.
+    function updateLabel(switchId, labelId, labelText, imageId) {
+        var switchElement = document.getElementById(switchId);
+        var labelElement = document.getElementById(labelId);
+        var imageElement = document.getElementById(imageId);
+
+        // Update label text based on switch state
+        if (switchElement.checked) {
+            labelElement.textContent = "Disable " + labelText;
+        } else {
+            labelElement.textContent = "Enable " + labelText;
+        }
+
+        // Ensure the the image is always displayed in the text if it is provided
+        if (imageElement) {
+            imageElement.style.display = 'inline';
+        }
+
+        // This event listener runs the below function if it detects a change in the switch's state
+        switchElement.addEventListener('change', function() {
+            // Update label text based on switch state
+            if (this.checked) {
+                labelElement.textContent = "Disable " + labelText;
+            } else {
+                labelElement.textContent = "Enable " + labelText;
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadSettings()
+        updateLabel('followRequestsSwitch', 'followRequestsLabel', 'Follow Requests');
+        updateLabel('profileVisibilitySwitch', 'profileVisibilityLabel', 'Profile Visibility');
+        updateLabel('targetedAdvertisingSwitch', 'targetedAdvertisingLabel', 'Targeted Advertising');
+        updateLabel('2faPreference', '2faLabel', '2FA');
+        updateLabel('disableSuspiciousActivityAlerts', 'suspiciousActivityLabel', 'Suspicious Activity Alerts', 'suspiciousActivityImage');
+    });
+
+    // Saves user settings when save settings is clicked
+    function saveSettings() {
+        var settings = {};
+        var userPreferences ={};
+
+        // Get values for fields to validate
+        var emailInput = document.getElementById('emailInput');
+        var email = emailInput.value.trim();
+
+        var recoveryEmailInput = document.getElementById('recoveryEmailInput');
+        var recoveryEmail = recoveryEmailInput.value.trim();
+
+        var passwordInput = document.getElementById('password');
+        var newPasswordInput = document.getElementById('newPassword');
+        var password = passwordInput.value.trim();
+        var newPassword = newPasswordInput.value.trim();
+
+        var phoneNumberInput = document.getElementById('phoneNumberInput');
+        var phoneNumber = phoneNumberInput.value.trim();
+
+        // Regular expression for validating email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Validate email format
+        if (email === '') {
+            showErrorNotification("Email cannot be empty.");
+            emailInput.focus();
+            return;
+        } else if (!emailRegex.test(email)) {
+            showErrorNotification("Please enter a valid email.");
+            emailInput.focus();
+            return;
+        }
+
+        // Validate recovery email format
+        if (recoveryEmail === '') {
+            showErrorNotification("Recovery email cannot be empty.");
+            recoveryEmailInput.focus();
+            return;
+        } else if (!emailRegex.test(recoveryEmail)) {
+            showErrorNotification("Please enter a valid recovery email.");
+            recoveryEmailInput.focus();
+            return;
+        }
+        
+        // Check if recovery email matches user email
+        if (recoveryEmail === email) {
+            showErrorNotification("Recovery email cannot match your email.");
+            recoveryEmailInput.focus();
+            return;
+        }
+
+        // Validate if passwords match
+        if (password !== newPassword) {
+            showErrorNotification("Both passwords must be the same.");
+            passwordInput.focus();
+            return;
+        }
+
+        const phoneRegex = /^(?:(?:\+44\s?|0)(?:\d{3}\s?\d{3}\s?\d{4}|\d{4}\s?\d{6}))$/;
+
+        // Validate phone number format
+        if (phoneNumber === '') {
+            showErrorNotification("Phone number cannot be empty.");
+            phoneNumberInput.focus();
+            return;
+        } else if (!phoneRegex.test(phoneNumber)) {
+            showErrorNotification("Please enter a valid phone number.");
+            phoneNumberInput.focus();
+            return;
+        }
+
+        // Get input field values
+        settings.email = email;
+        settings.phoneNumber = phoneNumber;
+        settings.region = document.querySelector('#selectedRegion').value;
+        settings.language = document.querySelector('#selectedLanguage').value;
+        settings.recoveryEmail = recoveryEmail;
+
+        // Get state of switches
+        settings.followRequestsEnabled = document.getElementById('followRequestsSwitch').checked;
+        settings.profileVisibilityDisabled = document.getElementById('profileVisibilitySwitch').checked;
+        settings.targetedAdvertisingDisabled = document.getElementById('targetedAdvertisingSwitch').checked;
+        settings.twoFactorAuthEnabled = document.getElementById('2faPreference').checked;
+        settings.suspiciousActivityAlertsDisabled = document.getElementById('disableSuspiciousActivityAlerts').checked;
+
+        // Get state of connected apps
+        settings.connectedApps = {
+            app1: document.getElementById('app1').querySelector('button').textContent.trim() === 'Disconnect',
+            app2: document.getElementById('app2').querySelector('button').textContent.trim() === 'Disconnect',
+            app3: document.getElementById('app3').querySelector('button').textContent.trim() === 'Disconnect'
+        };
+
+        // Get state of preference buttons
+        settings.budgetPreference = document.querySelector('.btn-group[data-group="budgetPreferences"] .active').textContent.trim();
+        settings.crowdDensityPreference = document.querySelector('.btn-group[data-group="crowdDensityPreferences"] .active').textContent.trim();
+        settings.followerPreferences = document.querySelector('.btn-group[data-group="followerPreferences"] .active').textContent.trim();
+        settings.seasonalPreferences = [];
+        document.querySelectorAll('.btn-group[data-group="seasonalPreferences"] .active').forEach(function(button) {
+            settings.seasonalPreferences.push(button.textContent.trim());
+        });
+        settings.wildlifePreferences = [];
+        document.querySelectorAll('.btn-group[data-group="wildlifePreferences"] .active').forEach(function(button) {
+            settings.wildlifePreferences.push(button.textContent.trim());
+        });
+
+        // Save specifically the userPreferences separately to be used in the main page to local storage
+        userPreferences.budgetPreference = settings.budgetPreference;
+        userPreferences.crowdDensityPreference = settings.crowdDensityPreference;
+        userPreferences.seasonalPreferences = settings.seasonalPreferences;
+        userPreferences.wildlifePreferences = settings.wildlifePreferences;
+        userPreferences.followerPreferences = settings.followerPreferences;
+
+        localStorage.setItem('userPreferences', JSON.stringify(userPreferences));
+
+        // Save all settings to local storage
+        localStorage.setItem('userSettings', JSON.stringify(settings));
+        showSuccessNotification('Settings saved successfully!');
+    }
+
+    // Function to load saved settings
+    function loadSettings() {
+        console.log("Loading settings...");
+        var settings = JSON.parse(localStorage.getItem('userSettings'));
+        console.log("Settings loaded:", settings);
+
+        if (settings) {
+            // Set input values
+            document.getElementById('emailInput').value = settings.email;
+            document.getElementById('phoneNumberInput').value = settings.phoneNumber;
+            document.querySelector('#selectedRegion').value = settings.region;
+            document.querySelector('#selectedLanguage').value = settings.language;
+
+            // Set switch values
+            document.getElementById('followRequestsSwitch').checked = settings.followRequestsEnabled;
+            document.getElementById('profileVisibilitySwitch').checked = settings.profileVisibilityDisabled;
+            document.getElementById('targetedAdvertisingSwitch').checked = settings.targetedAdvertisingDisabled;
+            document.getElementById('2faPreference').checked = settings.twoFactorAuthEnabled;
+            document.getElementById('disableSuspiciousActivityAlerts').checked = settings.suspiciousActivityAlertsDisabled;
+
+            // Set recovery email
+            document.getElementById('recoveryEmailInput').value = settings.recoveryEmail;
+
+            // Set connected apps state
+            if (!settings.connectedApps.app1) {
+                changeConnectedAppState('app1');
+            }
+            if (!settings.connectedApps.app2) {
+                changeConnectedAppState('app2');
+            }
+            if (!settings.connectedApps.app3) {
+                changeConnectedAppState('app3');
+            }
+
+            // Reset preference buttons state
+            document.querySelectorAll('.btn-group[data-group="budgetPreferences"] button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            document.querySelectorAll('.btn-group[data-group="crowdDensityPreferences"] button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            document.querySelectorAll('.btn-group[data-group="followerPreferences"] button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+
+            // Set preference buttons state
+            document.querySelectorAll('.btn-group[data-group="budgetPreferences"] button').forEach(function(button) {
+                if (button.textContent.trim() === settings.budgetPreference) {
+                    button.classList.add('active');
+                }
+            });
+            document.querySelectorAll('.btn-group[data-group="crowdDensityPreferences"] button').forEach(function(button) {
+                if (button.textContent.trim() === settings.crowdDensityPreference) {
+                    button.classList.add('active');
+                }
+            });
+            document.querySelectorAll('.btn-group[data-group="followerPreferences"] button').forEach(function(button) {
+                if (button.textContent.trim() === settings.followerPreferences) {
+                    button.classList.add('active');
+                }
+            });
+            settings.seasonalPreferences.forEach(function(pref) {
+                document.querySelectorAll('.btn-group[data-group="seasonalPreferences"] button').forEach(function(button) {
+                    if (button.textContent.trim() === pref) {
+                        button.classList.add('active');
+                    }
+                });
+            });
+            settings.wildlifePreferences.forEach(function(pref) {
+                document.querySelectorAll('.btn-group[data-group="wildlifePreferences"] button').forEach(function(button) {
+                    if (button.textContent.trim() === pref) {
+                        button.classList.add('active');
+                    }
+                });
+            });
+        }
+    }
+
+    let activeNotification = null;
+
+    function showSorryNotification() {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification');
+        notification.innerText = "Sorry! This feature hasn't been implemented yet.";
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null;
+            }, 1000);
+        }, 3000);
+    }
+
+        function showErrorNotification(text) {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification', 'error');
+        notification.innerText = text;
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null;
+            }, 1000);
+        }, 3000);
+    }
+
+    function showSuccessNotification(text) {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification', 'success');
+        notification.innerText = text;
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null;
+            }, 1000);
+        }, 3000);
+    }
+
+    function goBack() {
+    window.location.href = '/index.html';
+    }
+
+    function confirmRestoreDefaults() {
+    var confirmRestore = confirm("Are you sure you want to restore default settings? This action cannot be undone.");
+
+    // If the user confirms, proceed with restoring defaults
+    if (confirmRestore) {
+        restoreDefaults();
+    }
+    }
+
+    function restoreDefaults() {
+        localStorage.removeItem('userSettings');
+        localStorage.removeItem('userPreferences');
+        localStorage.setItem('defaultsReset', 'true');
+        location.reload();
+    }
+
+    // When the page is reloaded, check for defaultsReset flag and if it's true display success notification
+
+    window.onload = function() {
+    var defaultsReset = localStorage.getItem('defaultsReset');
+
+    // Check if defaults were reset
+        if (defaultsReset === 'true') {
+            // Show a success notification
+            showSuccessNotification('Default settings restored successfully!');
+
+            // Remove the flag from local storage
+            localStorage.removeItem('defaultsReset');
+        }
+    }
+</script>
+</body>
+</html>

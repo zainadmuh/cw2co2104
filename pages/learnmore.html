@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/styles.css" rel="stylesheet">
+    <title>NatureLovers - Guide to London</title>
+</head>
+    <body class="">
+    <!-- Banner -->
+    <div id="banner" class="green2 container-fluid p-4 border-left border-top border-bottom border-right border-2 border-dark position-relative">
+        <div class="row align-items-center justify-content-between">
+            <!-- Back button -->
+            <div class="col-lg-1">
+                <button id="backBtn" class="btn green2" onclick="history.back()">
+                    <img id="backBtnImg" src="../images/back.png" alt="Back" class="img-fluid">
+                    <p class="">Back</p>
+                </button>
+            </div>
+            <!-- Logo -->
+            <div class="col-lg-4">
+                <img id="logo" src="../images/logo.png" class="img-fluid" alt="Logo">
+            </div>
+            <!-- Profile button -->
+            <div class="col-lg-1 text-end">
+                <div class="dropdown">
+                    <button id="userProfileBtn" class="btn green2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img id="userProfileImg" src="../images/profile.png" alt="Profile" class="img-fluid me-2">
+                        <span class="align-middle">Username</span>
+                    </button>
+                    <ul class="dropdown-menu green5" aria-labelledby="userProfileBtn">
+                        <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/contrastToggle.png" class="me-2" alt="Contrast Toggle">Contrast Mode</a></li>
+                        <li><a class="dropdown-item" href="/pages/userprofile.html"><img src="../images/settingsCog.png" class="me-2" alt="Settings">Settings</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/Logout.png" class="me-2" alt="Sign Out">Sign Out</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="history.back()"><img src="../images/back.png" class="me-2" alt="Go Back">Go Back</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Search bar and button -->
+        <div class="row justify-content-center mt-3">
+            <div class="col-lg-4">
+                <div class="d-flex">
+                    <input id="searchInput" type="text" class="form-control border-dark green5" style="width: 100%;" placeholder="Search">
+                    <button class="btn green5 border-dark ms-2 p-1" type="button" onclick="showSorryNotification()">
+                        <img id="searchButtonImg" src="../images/magnifying_glass.png" alt="Search" class="img-fluid">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Body -->
+    <div id="mainBody" class="green5 container-fluid pt-2 border-left border-right border-bottom border-2 border-dark position-relative d-flex flex-column flex-grow-1">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb green5 mb-0">
+                <li class="breadcrumb-item"><a href="/index.html">Victoria Park</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Learn More</li>
+            </ol>
+        </nav>
+        <hr>
+        <div class="m-3 ms-5 green5 d-flex flex-column flex-grow-1"> <!-- This div is necessary to indent the main body's contents -->
+            <div class="row">
+                <!-- Section 1 -->
+                <div id="section-1" class="col-lg-6 d-flex flex-column flex-fill">
+                    <h2 class="display-4 d-flex align-items-center mb-4">
+                        Best Visit Time Explained
+                    </h2>
+                    <p class="col-lg-10">
+                        The ratings for events in a particular attraction is changed based on the user's preference.
+                        For example, if the user were to set a preference for "Summer", then events in the summer would be rated higher. 
+                        On the contrary, if the event recommends a high budget and the user prefers a low budget, the event will be rated lower.
+                    </p>
+                </div>
+                <!-- Section 2 -->
+                <div id="section-2" class="col-lg-6">
+                    <h2 class="display-4 d-flex align-items-center">
+                        Icons Explained
+                    </h2>
+                    <!-- Icons Explained Table -->
+                    <div class="table-responsive col-lg-10">
+                        <table id="iconTable" class="table-responsive table-bordered mt-4 w-100 bgreen1 mb-3">
+                            <thead class="">
+                                <tr>
+                                    <th scope="col" id="icon-column" class="w-20 text-center green2 p-3"><h2>Icon</h2></th>
+                                    <th scope="col" class="text-center green2"><h2>Explanation</h2></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <td colspan="2" class="p-4">
+                                        <h2>
+                                            <img src="../images/spring.png" alt="Seasonal Image" class="img-fluid">
+                                            Seasonal
+                                        </h2>
+                                    </td>
+                                <tr>
+                                    <td>
+                                        <img src="../images/summer.png" alt="Summer">
+                                    </td>
+                                    <td>This event occurs during summer</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/winter.png" alt="Winter">
+                                    </td>
+                                    <td>This event occuring during winter</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/spring.png" alt="Spring">
+                                    </td>
+                                    <td>This event occurs during spring</td>
+                                </tr>   
+                                <tr>
+                                    <td>
+                                        <img src="../images/autumn.png" alt="Autumn">
+                                    </td>
+                                    <td>This event occurs during autumn</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="p-4">
+                                        <h2>
+                                        <img src="../images/bear.png" alt="Wildlife Image" class="img-fluid">
+                                        Wildlife</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/wolf.png" alt="Wolves">
+                                    </td>
+                                    <td>There are wolves present at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/snake.png" alt="Snakes">
+                                    </td>
+                                    <td>There are snakes present at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/rabbit.png" alt="Rabbits">
+                                    </td>
+                                    <td>There are rabbits present at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/bear.png" alt="Bears">
+                                    </td>
+                                    <td>There are bears present at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/bee.png" alt="Bees">
+                                    </td>
+                                    <td>There are bees present at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/locked.png" alt="Caged">
+                                    </td>
+                                    <td>The animal shown before this icon is caged at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/unlocked.png" alt="Free to Roam">
+                                    </td>
+                                    <td>The animal shown before this icon is free to roam at this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/danger.png" alt="Danger">
+                                    </td>
+                                    <td>You should be wary of the animal shown before this icon at this event</td>
+                                </tr>
+                                <td colspan="2" class="p-4">
+                                    <h2>
+                                        Miscellaneous
+                                    </h2>
+                                </td>
+                                <tr>
+                                    <td>
+                                        <img src="../images/money.png" alt="Low Budget">
+                                    </td>
+                                    <td>Low budget required for this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/money.png" alt="Medium Budget">
+                                        <img src="../images/money.png" alt="Medium Budget">
+                                    </td>
+                                    <td>Medium budget required for this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/money.png" alt="High Budget">
+                                        <img src="../images/money.png" alt="High Budget">
+                                        <img src="../images/money.png" alt="High Budget">
+                                    </td>
+                                    <td>High budget required for this event</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/low crowd density.png" alt="Low Crowd Density">
+                                    </td>
+                                    <td>This event is only a little crowded</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/mediun crowd density.png" alt="Medium Crowd Density">
+                                    </td>
+                                    <td>This event is moderatly crowded</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/high crowd density.png" alt="High Crowd Density">
+                                    </td>
+                                    <td>This event is very crowded</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/rain.png" alt="Raining">
+                                    </td>
+                                    <td>The weather forecast predicts rain during this event</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    <!-- Footer -->
+    <footer class="green2 text-white text-center py-3">
+        <div class="d-flex justify-content-center">
+            <p class="footer-link mx-3" onclick="showSorryNotification()">Contact Us</p>
+            <p class="footer-link mx-3" onclick="showSorryNotification()">Terms of Use</p>
+            <p class="footer-link mx-3" onclick="showSorryNotification()">Become a Subscriber</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    let activeNotification = null;
+
+    // When a feature is not implemented, use this to display a notification to inform the user
+
+    function showSorryNotification() {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification');
+        notification.innerText = "Sorry! This feature hasn't been implemented yet.";
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null;
+            }, 1000);
+        }, 3000);
+    }
+
+        // When an error occurs, use this to display a notification to inform the user
+
+        function showErrorNotification(text) {
+        if (activeNotification) {
+            // If there's an active notification, remove it
+            document.body.removeChild(activeNotification);
+        }
+        
+        const notification = document.createElement('div');
+        notification.classList.add('notification', 'error');
+        notification.innerText = text;
+        document.body.appendChild(notification);
+        activeNotification = notification;
+
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                activeNotification = null;
+            }, 1000);
+        }, 3000);
+    }
+</script>
