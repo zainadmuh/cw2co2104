@@ -156,3 +156,7 @@
     background-color: #68D391!important;
     text-align: center;
 }
+
+.body {
+    overflow-x: hidden
+}
