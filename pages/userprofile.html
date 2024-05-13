@@ -45,7 +45,7 @@
             <div class="d-flex">
                 <input id="searchInput" type="text" class="form-control border-dark green5" style="width: 100%;" placeholder="Search">
                 <button class="btn green5 border-dark ms-2 p-1" type="button" onclick="showSorryNotification()">
-                    <img id="searchButtonImg" src="../images/magnifying_glass.png" alt="Search" class="img-fluid">
+                    <img id="searchButtonImg" src="images/magnifying_glass.png" alt="Search" class="img-fluid">
                 </button>
             </div>
         </div>
@@ -57,7 +57,7 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb green5 mb-0">
-            <li class="breadcrumb-item"><a href="/index.html">Victoria Park</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Victoria Park</a></li>
             <li class="breadcrumb-item active" aria-current="page">User Profile</li>
         </ol>
     </nav>
@@ -523,7 +523,6 @@
                 button.classList.remove('active');
             });
 
-            // Set preference buttons state
             document.querySelectorAll('.btn-group[data-group="budgetPreferences"] button').forEach(function(button) {
                 if (button.textContent.trim() === settings.budgetPreference) {
                     button.classList.add('active');
@@ -621,10 +620,6 @@
         }, 3000);
     }
 
-    function goBack() {
-    window.location.href = '/index.html';
-    }
-
     function confirmRestoreDefaults() {
     var confirmRestore = confirm("Are you sure you want to restore default settings? This action cannot be undone.");
 
@@ -645,13 +640,8 @@
 
     window.onload = function() {
     var defaultsReset = localStorage.getItem('defaultsReset');
-
-    // Check if defaults were reset
         if (defaultsReset === 'true') {
-            // Show a success notification
             showSuccessNotification('Default settings restored successfully!');
-
-            // Remove the flag from local storage
             localStorage.removeItem('defaultsReset');
         }
     }

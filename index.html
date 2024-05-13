@@ -27,14 +27,14 @@
         <div class="col-lg-1 text-end">
             <div class="dropdown">
                 <button class="btn green2" type="button" id="userProfileBtn" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img id="userProfile" src="../images/profile.png" alt="Profile" class="img-fluid me-2">
+                    <img id="userProfile" src="images/profile.png" alt="Profile" class="img-fluid me-2">
                     <span class="align-middle">Username</span>
                 </button>
                 <ul class="dropdown-menu green5" aria-labelledby="userProfileBtn">
-                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/contrastToggle.png" class="me-2" alt="Contrast Toggle">Contrast Mode</a></li>
-                    <li><a class="dropdown-item" href="/pages/userprofile.html"><img src="../images/settingsCog.png" class="me-2" alt="Settings">Settings</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="../images/Logout.png" class="me-2" alt="Sign Out">Sign Out</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="showErrorNotification('You\'re back where you started!')"><img src="../images/Back.png" class="" alt="Go Back">Go Back</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="images/contrastToggle.png" class="me-2" alt="Contrast Toggle">Contrast Mode</a></li>
+                    <li><a class="dropdown-item" href="../pages/userprofile.html"><img src="images/settingsCog.png" class="me-2" alt="Settings">Settings</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showSorryNotification();"><img src="images/Logout.png" class="me-2" alt="Sign Out">Sign Out</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showErrorNotification('You\'re back where you started!')"><img src="images/Back.png" class="" alt="Go Back">Go Back</a></li>
                 </ul>
             </div>
         </div>
@@ -361,7 +361,7 @@
     };
 
     function redirectToLearnMore() {
-    window.location.href = 'pages/learnmore.html';
+    window.location.href = '../pages/learnmore.html';
     }
 
     function updateStarRatings() {
